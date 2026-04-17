@@ -30,7 +30,7 @@ export function About() {
         {/* Header */}
         <FadeIn>
           <div className="mb-14">
-            <SectionLabel>01 — About</SectionLabel>
+            <SectionLabel>01 · About</SectionLabel>
             <h2 className="text-3xl sm:text-4xl font-semibold text-text-primary mt-3 mb-4">
               The throughline
             </h2>
@@ -48,7 +48,7 @@ export function About() {
               <div className="relative w-44 h-44 rounded-full overflow-hidden border-2 border-border-2 ring-4 ring-accent/10">
                 <Image
                   src="/donato.jpg"
-                  alt="Donato Hernández — Full-Stack Developer"
+                  alt="Donato Hernández, Full-Stack Developer"
                   fill
                   sizes="176px"
                   className="object-cover object-top"

@@ -11,7 +11,7 @@ export function Skills() {
       <div className="max-w-6xl mx-auto">
         <FadeIn>
           <div className="mb-14">
-            <SectionLabel>04 — Skills</SectionLabel>
+            <SectionLabel>04 · Skills</SectionLabel>
             <h2 className="text-3xl sm:text-4xl font-semibold text-text-primary mt-3">
               Stack &amp; tools
             </h2>

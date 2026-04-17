@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Linkedin } from "lucide-react";
+import { Mail, Linkedin, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { contact } from "@/data/content";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -11,7 +11,7 @@ export function Contact() {
     <section id="contact" className="py-28 px-6">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <SectionLabel>05 — Contact</SectionLabel>
+          <SectionLabel>05 · Contact</SectionLabel>
         </FadeIn>
 
         <FadeIn delay={0.06}>
@@ -60,7 +60,7 @@ export function Contact() {
               </div>
 
               {/* Contact cards */}
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-3 gap-4">
                 <a
                   href={`mailto:${contact.email}`}
                   className="flex items-center gap-4 p-4 rounded-lg border border-border bg-surface-2 group hover:border-border-2 transition-colors duration-200 cursor-pointer"
@@ -92,6 +92,24 @@ export function Contact() {
                     </p>
                     <p className="text-sm text-text-secondary group-hover:text-text-primary transition-colors duration-200">
                       Connect with me
+                    </p>
+                  </div>
+                </a>
+                <a
+                  href={contact.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-lg border border-border bg-surface-2 group hover:border-border-2 transition-colors duration-200 cursor-pointer"
+                >
+                  <div className="p-2.5 rounded-md bg-accent-dim">
+                    <MessageCircle size={16} className="text-accent" />
+                  </div>
+                  <div>
+                    <p className="font-mono text-[11px] text-text-muted uppercase tracking-widest mb-0.5">
+                      SMS / WhatsApp
+                    </p>
+                    <p className="text-sm text-text-secondary group-hover:text-text-primary transition-colors duration-200">
+                      {contact.whatsappNumber}
                     </p>
                   </div>
                 </a>

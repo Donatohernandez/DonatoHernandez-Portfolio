@@ -8,9 +8,11 @@ export const siteMetadata = {
 
 export const nav = {
   links: [
+    { label: "Home", href: "#hero" },
     { label: "About", href: "#about" },
     { label: "Work", href: "#work" },
     { label: "Skills", href: "#skills" },
+    { label: "Values", href: "#values" },
     { label: "Contact", href: "#contact" },
   ],
 };
@@ -20,7 +22,7 @@ export const hero = {
   title: "Full-Stack Developer · AI Integration · Backend Systems",
   tagline: "I build full-stack products that ship.",
   subtext:
-    "Mexico-based developer building production-ready apps with React Native, Node.js, and AI — currently co-founding Zaaby, an AI-powered iOS app transforming saved content into actionable insights.",
+    "Mexico-based developer building production-ready apps with React Native, Node.js, and AI. Currently co-founding Zaaby, an AI-powered iOS app transforming saved content into actionable insights.",
   cta: {
     primary: { label: "View Projects", href: "#work" },
     secondary: { label: "Let's Connect", href: "#contact" },
@@ -67,9 +69,10 @@ export const projects = [
       "Security audit completed, zero critical vulnerabilities",
     ],
     proof:
-      "I can architect and ship a complete AI-powered mobile product — backend, data, payments, compliance, and deployment — solo.",
+      "I can architect and ship a complete AI-powered mobile product: backend, data, payments, compliance, and deployment. Solo.",
     github: "#",
-    live: "#",
+    live: "https://zaaby.app/",
+    liveLabel: "Visit Landing Page",
   },
   {
     id: "pitchpilot",
@@ -94,9 +97,11 @@ export const projects = [
       "Successfully migrated infrastructure from shared to personal GCP account",
     ],
     proof:
-      "I can build real-time, production-grade AI systems with complex infrastructure — not just CRUD apps.",
+      "I can build real-time, production-grade AI systems with complex infrastructure. Not just CRUD apps.",
     github: "#",
     live: "#",
+    liveLabel: "Try PitchPilot",
+    comingSoon: true,
   },
 ];
 
@@ -172,16 +177,19 @@ export const skills = {
     "Windsurf",
   ],
   philosophy:
-    "AI should accelerate understanding, not replace it. I use it to build faster — but I know why every line works.",
+    "AI should accelerate understanding, not replace it. I use it to build faster, but I know why every line works.",
 };
 
 export const contact = {
   headline: "Let's Work Together",
   subtext:
-    "If your team needs a developer who ships full-stack products, integrates AI thoughtfully, and works well async — let's talk.",
+    "If your team needs a developer who ships full-stack products, integrates AI thoughtfully, and works well async, let's talk.",
   hint: "I'm open to remote full-stack roles, especially teams building with AI.",
   email: "manueldonato9921@gmail.com",
   linkedin: "https://www.linkedin.com/in/manuel-donato-hernandez/",
+  whatsapp: "https://wa.me/526471229788",
+  whatsappNumber: "+52 647 122 9788",
   emailLabel: "Email Me",
   linkedinLabel: "LinkedIn",
+  whatsappLabel: "WhatsApp",
 };

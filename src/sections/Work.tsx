@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles, Mic, Github, ExternalLink } from "lucide-react";
+import { Sparkles, Mic, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { projects } from "@/data/content";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -22,7 +22,7 @@ export function Work() {
       <div className="max-w-6xl mx-auto">
         <FadeIn>
           <div className="mb-14">
-            <SectionLabel>02 — Featured Work</SectionLabel>
+            <SectionLabel>02 · Featured Work</SectionLabel>
             <h2 className="text-3xl sm:text-4xl font-semibold text-text-primary mt-3">
               Things I&apos;ve shipped
             </h2>
@@ -124,22 +124,26 @@ export function Work() {
                       </p>
                     </div>
                     <div className="flex items-center gap-3 shrink-0">
-                      <a
-                        href={project.github}
-                        aria-label={`${project.name} GitHub`}
-                        className="flex items-center gap-2 px-4 py-2 rounded-md border border-border text-text-secondary text-sm hover:border-border-2 hover:text-text-primary transition-all duration-200 cursor-pointer"
-                      >
-                        <Github size={15} />
-                        Code
-                      </a>
-                      <a
-                        href={project.live}
-                        aria-label={`${project.name} live`}
-                        className="flex items-center gap-2 px-4 py-2 rounded-md bg-accent/10 border border-accent/20 text-accent text-sm hover:bg-accent/15 transition-all duration-200 cursor-pointer"
-                      >
-                        <ExternalLink size={15} />
-                        Live
-                      </a>
+                      {project.comingSoon ? (
+                        <span
+                          aria-disabled="true"
+                          className="flex items-center gap-2 px-4 py-2 rounded-md bg-accent/10 border border-accent/20 text-accent text-sm opacity-40 cursor-not-allowed select-none"
+                        >
+                          <ExternalLink size={15} />
+                          Coming Soon
+                        </span>
+                      ) : (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${project.name} live`}
+                          className="flex items-center gap-2 px-4 py-2 rounded-md bg-accent/10 border border-accent/20 text-accent text-sm hover:bg-accent/15 transition-all duration-200 cursor-pointer"
+                        >
+                          <ExternalLink size={15} />
+                          {project.liveLabel ?? "Live"}
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
