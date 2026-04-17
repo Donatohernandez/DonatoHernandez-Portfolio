@@ -1,9 +1,19 @@
 "use client";
 
+import { Rocket, Layers, Bot, Code2, Wifi, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import { values } from "@/data/content";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+
+const iconMap: Record<string, React.ReactNode> = {
+  rocket: <Rocket size={18} />,
+  layers: <Layers size={18} />,
+  bot: <Bot size={18} />,
+  code2: <Code2 size={18} />,
+  wifi: <Wifi size={18} />,
+  users: <Users size={18} />,
+};
 
 export function Values() {
   return (
@@ -26,9 +36,14 @@ export function Values() {
                 transition={{ duration: 0.2 }}
                 className="p-6 rounded-xl border border-border bg-surface cursor-default h-full"
               >
-                <p className="font-mono text-[11px] text-accent tracking-widest uppercase mb-3">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 rounded-md bg-accent-dim text-accent">
+                    {iconMap[v.icon]}
+                  </div>
+                  <p className="font-mono text-[11px] text-accent tracking-widest uppercase">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                </div>
                 <h3 className="text-text-primary font-semibold text-base mb-2">
                   {v.title}
                 </h3>

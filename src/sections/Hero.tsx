@@ -1,8 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Github, Linkedin, ArrowDown } from "lucide-react";
 import { hero } from "@/data/content";
-import { ArrowDown } from "lucide-react";
+
+const iconMap: Record<string, React.ReactNode> = {
+  github: <Github size={18} />,
+  linkedin: <Linkedin size={18} />,
+};
 
 const container = {
   hidden: {},
@@ -94,7 +99,7 @@ export function Hero() {
         {/* CTAs */}
         <motion.div
           variants={item}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
         >
           <a
             href={hero.cta.primary.href}
@@ -109,6 +114,25 @@ export function Hero() {
           >
             {hero.cta.secondary.label}
           </a>
+        </motion.div>
+
+        {/* Social links */}
+        <motion.div
+          variants={item}
+          className="flex items-center justify-center gap-3"
+        >
+          {hero.social.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              className="flex items-center justify-center w-10 h-10 rounded-md border border-border text-text-muted hover:border-accent/40 hover:text-accent transition-all duration-200"
+            >
+              {iconMap[s.icon]}
+            </a>
+          ))}
         </motion.div>
       </motion.div>
 

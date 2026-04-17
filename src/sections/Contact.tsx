@@ -35,8 +35,8 @@ export function Contact() {
                 </p>
               </div>
 
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              {/* CTA */}
+              <div className="mb-12">
                 <motion.a
                   href={`mailto:${contact.email}`}
                   whileHover={{ scale: 1.02 }}
@@ -45,17 +45,6 @@ export function Contact() {
                 >
                   <Mail size={16} />
                   {contact.emailLabel}
-                </motion.a>
-                <motion.a
-                  href={contact.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.15 }}
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-md border border-border-2 text-text-secondary font-medium text-sm cursor-pointer hover:border-accent/40 hover:text-text-primary transition-all duration-200"
-                >
-                  <Linkedin size={16} />
-                  {contact.linkedinLabel}
                 </motion.a>
               </div>
 

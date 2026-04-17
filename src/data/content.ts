@@ -27,6 +27,10 @@ export const hero = {
     primary: { label: "View Projects", href: "#work" },
     secondary: { label: "Let's Connect", href: "#contact" },
   },
+  social: [
+    { label: "GitHub", icon: "github", href: "https://github.com/Donatohernandez" },
+    { label: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/in/manuel-donato-hernandez/" },
+  ],
 };
 
 export const about = {
@@ -107,26 +111,32 @@ export const projects = [
 
 export const values = [
   {
+    icon: "rocket",
     title: "Ship over perfect",
     body: "Working software beats perfect plans every time.",
   },
   {
+    icon: "layers",
     title: "Systems over patches",
     body: "If a problem repeats, I build something to stop it.",
   },
   {
+    icon: "bot",
     title: "AI as a tool, not a crutch",
     body: "I use AI to go faster, not to skip understanding.",
   },
   {
+    icon: "code2",
     title: "Clarity in code",
     body: "Readable, maintainable code is a form of respect for your team.",
   },
   {
+    icon: "wifi",
     title: "Remote-first mindset",
     body: "Async communication, documentation, ownership.",
   },
   {
+    icon: "users",
     title: "Talent over location",
     body: "The best work happens when you hire for skill, not timezone.",
   },
