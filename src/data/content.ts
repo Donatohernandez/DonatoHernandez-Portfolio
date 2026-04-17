@@ -11,8 +11,8 @@ export const nav = {
     { label: "Home", href: "#hero" },
     { label: "About", href: "#about" },
     { label: "Work", href: "#work" },
-    { label: "Skills", href: "#skills" },
     { label: "Values", href: "#values" },
+    { label: "Skills", href: "#skills" },
     { label: "Contact", href: "#contact" },
   ],
 };

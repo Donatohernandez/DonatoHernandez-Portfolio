@@ -1,12 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 import { nav } from "@/data/content";
 
 export function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,43 +39,134 @@ export function Navbar() {
     };
   }, []);
 
-  return (
-    <motion.header
-      initial={{ opacity: 0, y: -16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/90 backdrop-blur-md border-b border-border"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <span className="font-mono text-sm text-text-secondary">
-          <span className="text-accent">donato</span>.dev
-        </span>
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
 
-        <ul className="hidden sm:flex items-center gap-8">
-          {nav.links.map((link) => {
-            const id = link.href.slice(1);
-            const isActive = activeSection === id;
-            return (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className={`text-sm transition-colors duration-200 cursor-pointer ${
-                    isActive
-                      ? "text-accent"
-                      : "text-text-secondary hover:text-text-primary"
-                  }`}
+  return (
+    <>
+      <motion.header
+        initial={{ opacity: 0, y: -16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-background/90 backdrop-blur-md border-b border-border"
+            : "bg-transparent"
+        }`}
+      >
+        <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          <span className="font-mono text-sm text-text-secondary">
+            <span className="text-accent">donato</span>.dev
+          </span>
+
+          {/* Desktop links */}
+          <ul className="hidden sm:flex items-center gap-8">
+            {nav.links.map((link) => {
+              const id = link.href.slice(1);
+              const isActive = activeSection === id;
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className={`text-sm transition-colors duration-200 cursor-pointer ${
+                      isActive
+                        ? "text-accent"
+                        : "text-text-secondary hover:text-text-primary"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            className="sm:hidden flex items-center justify-center w-9 h-9 rounded-md text-text-secondary hover:text-text-primary transition-colors duration-200"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+          >
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </nav>
+      </motion.header>
+
+      {/* Mobile drawer */}
+      <AnimatePresence>
+        {menuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-40 bg-background/60 backdrop-blur-sm sm:hidden"
+              onClick={() => setMenuOpen(false)}
+            />
+
+            {/* Panel */}
+            <motion.div
+              key="drawer"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
+              className="fixed top-0 right-0 bottom-0 z-50 w-64 bg-surface border-l border-border flex flex-col sm:hidden"
+            >
+              {/* Drawer header */}
+              <div className="h-16 flex items-center justify-between px-6 border-b border-border">
+                <span className="font-mono text-sm text-text-secondary">
+                  <span className="text-accent">donato</span>.dev
+                </span>
+                <button
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center justify-center w-9 h-9 rounded-md text-text-secondary hover:text-text-primary transition-colors duration-200"
+                  aria-label="Close menu"
                 >
-                  {link.label}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-    </motion.header>
+                  <X size={20} />
+                </button>
+              </div>
+
+              {/* Drawer links */}
+              <ul className="flex flex-col px-4 py-6 gap-1">
+                {nav.links.map((link, i) => {
+                  const id = link.href.slice(1);
+                  const isActive = activeSection === id;
+                  return (
+                    <motion.li
+                      key={link.href}
+                      initial={{ opacity: 0, x: 16 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.05, duration: 0.25 }}
+                    >
+                      <a
+                        href={link.href}
+                        onClick={() => setMenuOpen(false)}
+                        className={`flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium transition-colors duration-200 ${
+                          isActive
+                            ? "text-accent bg-accent-dim"
+                            : "text-text-secondary hover:text-text-primary hover:bg-surface-2"
+                        }`}
+                      >
+                        {isActive && (
+                          <span className="w-1 h-1 rounded-full bg-accent shrink-0" />
+                        )}
+                        {link.label}
+                      </a>
+                    </motion.li>
+                  );
+                })}
+              </ul>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
