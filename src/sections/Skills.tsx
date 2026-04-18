@@ -1,9 +1,57 @@
 "use client";
 
+import {
+  siGit,
+  siGithub,
+  siJira,
+  siSupabase,
+  siVercel,
+  siGooglecloud,
+  siRevenuecat,
+  siFigma,
+  siAnthropic,
+  siWindsurf,
+} from "simple-icons";
 import { motion } from "framer-motion";
 import { skills } from "@/data/content";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+
+const toolIcons: Record<string, { path: string; hex: string }> = {
+  Git: siGit,
+  GitHub: siGithub,
+  Jira: siJira,
+  Supabase: siSupabase,
+  Vercel: siVercel,
+  "Google Cloud": siGooglecloud,
+  RevenueCat: siRevenuecat,
+  Figma: siFigma,
+  Claude: siAnthropic,
+  Windsurf: siWindsurf,
+};
+
+function ToolBadge({ tool }: { tool: string }) {
+  const icon = toolIcons[tool];
+  return (
+    <motion.span
+      whileHover={{ borderColor: "rgba(56,189,248,0.4)", color: "#f8fafc" }}
+      transition={{ duration: 0.15 }}
+      className="flex items-center gap-2 px-3 py-1.5 text-xs rounded-md border border-border text-text-secondary cursor-default font-mono"
+    >
+      {icon && (
+        <svg
+          role="img"
+          viewBox="0 0 24 24"
+          className="w-3.5 h-3.5 shrink-0 fill-current"
+          aria-hidden
+        >
+          <path d={icon.path} />
+        </svg>
+      )}
+      {tool}
+    </motion.span>
+  );
+}
 
 export function Skills() {
   return (
@@ -50,14 +98,7 @@ export function Skills() {
             </p>
             <div className="flex flex-wrap gap-2">
               {skills.tools.map((tool) => (
-                <motion.span
-                  key={tool}
-                  whileHover={{ borderColor: "rgba(56,189,248,0.4)", color: "#f8fafc" }}
-                  transition={{ duration: 0.15 }}
-                  className="px-3 py-1.5 text-xs rounded-md border border-border text-text-secondary cursor-default font-mono"
-                >
-                  {tool}
-                </motion.span>
+                <ToolBadge key={tool} tool={tool} />
               ))}
             </div>
           </div>

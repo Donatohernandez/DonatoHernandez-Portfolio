@@ -35,7 +35,7 @@ export const hero = {
 
 export const about = {
   narrative:
-    "My background spans logistics, systems administration, and full-stack development. The consistent thread: I build systems that solve real operational problems.",
+    "I started in logistics and systems administration — environments where downtime costs money and bad tooling costs more. That pushed me into building the tools myself: from a full-stack AI-powered iOS app shipped to the App Store, to real-time voice AI with sub-second latency running on Google Cloud. Right now I'm focused on remote roles where I can own the architecture and ship things that actually matter.",
   capabilities: [
     { label: "I build backend systems", icon: "server" },
     { label: "I integrate AI into products", icon: "brain" },
