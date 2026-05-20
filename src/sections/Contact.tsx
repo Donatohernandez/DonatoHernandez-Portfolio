@@ -110,10 +110,11 @@ export function Contact() {
         {/* Footer */}
         <FadeIn delay={0.1}>
           <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-text-muted text-sm">
-            <span className="font-mono">
-              <span className="text-accent">donato</span>.dev
+            <span className="font-bold tracking-tight">
+              <span className="text-accent">Donato</span>{" "}
+              <span className="text-text-primary">Hernández</span>
             </span>
-            <span>Built with Next.js + Tailwind CSS. Deployed on Vercel.</span>
+            <span>© 2026 Donato Hernández. Built with intention, strong coffee, and a passion for shipping things that matter.</span>
           </div>
         </FadeIn>
       </div>

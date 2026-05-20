@@ -35,14 +35,14 @@ export const hero = {
 
 export const about = {
   narrative:
-    "I started in logistics and systems administration, environments where downtime costs money and bad tooling costs more. That pushed me into building the tools myself: from a full-stack AI-powered iOS app shipped to the App Store, to real-time voice AI with sub-second latency running on Google Cloud. Right now I'm focused on remote roles where I can own the architecture and ship things that actually matter.",
+    "I started in logistics and systems administration, environments where downtime costs money and bad tooling costs more. That pushed me into building the tools myself: from a full-stack AI-powered iOS app shipped to the App Store, to real-time voice AI with sub-second latency running on Google Cloud. I care about owning the architecture end-to-end, writing code that's maintainable, and delivering products that solve real problems.",
   capabilities: [
-    { label: "I build backend systems", icon: "server" },
-    { label: "I integrate AI into products", icon: "brain" },
-    { label: "I ship to production", icon: "rocket" },
-    { label: "I architect data models", icon: "database" },
-    { label: "I build mobile apps", icon: "smartphone" },
-    { label: "I automate workflows", icon: "workflow" },
+    { label: "Backend Engineering", icon: "server" },
+    { label: "AI Integration", icon: "brain" },
+    { label: "Production Delivery", icon: "rocket" },
+    { label: "Data Architecture", icon: "database" },
+    { label: "Mobile Development", icon: "smartphone" },
+    { label: "Workflow Automation", icon: "workflow" },
   ],
   quote:
     "What would this look like if it was simple, scalable, and actually shipped?",

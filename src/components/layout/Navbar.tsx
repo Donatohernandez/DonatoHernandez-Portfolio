@@ -58,8 +58,9 @@ export function Navbar() {
         }`}
       >
         <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <span className="font-mono text-sm text-text-secondary">
-            <span className="text-accent">donato</span>.dev
+          <span className="text-lg font-bold tracking-tight">
+            <span className="text-accent">Donato</span>{" "}
+            <span className="text-text-primary">Hernández</span>
           </span>
 
           {/* Desktop links */}
@@ -121,8 +122,9 @@ export function Navbar() {
             >
               {/* Drawer header */}
               <div className="h-16 flex items-center justify-between px-6 border-b border-border">
-                <span className="font-mono text-sm text-text-secondary">
-                  <span className="text-accent">donato</span>.dev
+                <span className="text-lg font-bold tracking-tight">
+                  <span className="text-accent">Donato</span>{" "}
+                  <span className="text-text-primary">Hernández</span>
                 </span>
                 <button
                   onClick={() => setMenuOpen(false)}

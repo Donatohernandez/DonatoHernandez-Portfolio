@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, ArrowDown } from "lucide-react";
 import { hero } from "@/data/content";
+import { SpecialText } from "@/components/ui/special-text";
 
 const iconMap: Record<string, React.ReactNode> = {
   github: <Github size={18} />,
@@ -69,7 +70,9 @@ export function Hero() {
           variants={item}
           className="text-5xl sm:text-6xl md:text-7xl font-semibold text-text-primary leading-tight tracking-tight mb-4"
         >
-          {hero.name}
+          <SpecialText delay={0.3}>
+            {hero.name}
+          </SpecialText>
         </motion.h1>
 
         {/* Role */}

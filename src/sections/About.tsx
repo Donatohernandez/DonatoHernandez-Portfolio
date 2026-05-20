@@ -32,7 +32,7 @@ export function About() {
           <div className="mb-14">
             <SectionLabel>01 · About</SectionLabel>
             <h2 className="text-3xl sm:text-4xl font-semibold text-text-primary mt-3 mb-4">
-              The throughline
+              Behind the code
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed max-w-2xl">
               {about.narrative}
