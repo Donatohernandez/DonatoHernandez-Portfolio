@@ -22,7 +22,7 @@ export const hero = {
   title: "Full-Stack Developer · AI Integration · Backend Systems",
   tagline: "I build full-stack products that ship.",
   subtext:
-    "Mexico-based developer building production-ready apps with React Native, Node.js, and AI. Currently co-founding Zaaby, an AI-powered iOS app transforming saved content into actionable insights.",
+    "Co-founder of Zaaby and PitchPilot AI. Full-stack developer specialized in React Native, backend systems, and AI integration. Focused on shipping production-ready applications.",
   cta: {
     primary: { label: "View Projects", href: "#work" },
     secondary: { label: "Let's Connect", href: "#contact" },
