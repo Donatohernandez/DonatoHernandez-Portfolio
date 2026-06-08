@@ -107,6 +107,37 @@ export const projects = [
     liveLabel: "Try PitchPilot",
     comingSoon: true,
   },
+  {
+    id: "linaria",
+    name: "Linaria",
+    icon: "brain",
+    role: ["Solo Developer", "Full-Stack", "AI Agent Architecture"],
+    painPoint:
+      "Small dev teams waste time on manual standups and don't catch blockers until it's too late.",
+    description:
+      "An AI executive memory agent for development teams. Connects to your team's GitHub repo, analyzes commits, PRs, and recent activity, then automatically generates daily standups, detects blockers, alerts on risks, generates changelogs, and displays team velocity in a visual dashboard. Built with a self-improvement loop where the agent evaluates its own summary quality using Arize Phoenix for observability.",
+    status: { label: "🏆 Presented at Google Cloud Rapid Agent Hackathon 2026", variant: "hackathon" as const },
+    technical: [
+      "Python + Google ADK with Gemini 2.5 Flash as core LLM",
+      "FastAPI backend deployed on Google Cloud Run",
+      "React + TypeScript + Tailwind frontend on Vercel",
+      "Arize Phoenix MCP integration for tracing and observability",
+      "Self-improvement loop: agent evaluates and scores its own outputs",
+      "Multi-step planning engine for complex queries",
+      "PyGithub for real-time repo analysis (commits, PRs, issues)",
+    ],
+    impact: [
+      "10 production features: auto standup, blocker detection, changelog generation, PR review queue, team velocity chart, risk alerts, repo selector, multi-step planning, self-evaluation, Phoenix observability",
+      "Automated daily standups replacing manual team updates",
+      "Real-time blocker detection across PRs and issues",
+      "Self-improving agent that gets better with each interaction",
+    ],
+    proof:
+      "I can architect and ship a complete AI agent system — from LLM orchestration and observability to production deployment on Google Cloud — solo and under hackathon pressure.",
+    github: "https://github.com/Donatohernandez/Linaria",
+    live: "https://github.com/Donatohernandez/Linaria",
+    liveLabel: "View on GitHub",
+  },
 ];
 
 export const values = [

@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles, Mic, ExternalLink } from "lucide-react";
+import { Sparkles, Mic, Brain, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { projects } from "@/data/content";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -9,11 +9,13 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 const iconMap: Record<string, React.ReactNode> = {
   sparkles: <Sparkles size={20} />,
   mic: <Mic size={20} />,
+  brain: <Brain size={20} />,
 };
 
 const statusStyles: Record<string, string> = {
   live: "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20",
   shipped: "bg-sky-500/10 text-sky-400 border border-sky-500/20",
+  hackathon: "bg-amber-500/10 text-amber-400 border border-amber-500/20",
 };
 
 export function Work() {
