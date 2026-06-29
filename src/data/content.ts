@@ -1,7 +1,7 @@
 export const siteMetadata = {
   title: "Donato Hernández | Full-Stack Developer",
   description:
-    "Mexico-based full-stack developer building production-ready apps with React Native, Node.js, and AI. Co-founder of Zaaby.",
+    "Mexico-based full-stack developer building production-ready apps with React Native, Node.js, and AI. Developer behind Zaaby App and PitchPilot AI.",
   url: "https://donatohernandez.dev",
   ogImage: "/og-image.png",
 };
@@ -22,7 +22,7 @@ export const hero = {
   title: "Full-Stack Developer · AI Integration · Backend Systems",
   tagline: "I build full-stack products that ship.",
   subtext:
-    "Co-founder of Zaaby and PitchPilot AI. Full-stack developer specialized in React Native, backend systems, and AI integration. Focused on shipping production-ready applications.",
+    "Full-stack & backend developer behind Zaaby App and PitchPilot AI. Specialized in React Native, backend systems, and AI integration. Focused on shipping production-ready applications.",
   cta: {
     primary: { label: "View Projects", href: "#work" },
     secondary: { label: "Let's Connect", href: "#contact" },
@@ -53,7 +53,7 @@ export const projects = [
     id: "zaaby",
     name: "Zaaby App",
     icon: "sparkles",
-    role: ["Co-founder", "Backend Developer", "Architecture Lead"],
+    role: ["Full-Stack Developer", "Backend Architect", "Co-founder"],
     painPoint:
       "People save great content from social media and never act on it.",
     description:
@@ -82,7 +82,7 @@ export const projects = [
     id: "pitchpilot",
     name: "PitchPilot AI",
     icon: "mic",
-    role: ["Co-founder", "Full-Stack Developer"],
+    role: ["Full-Stack Developer", "Backend Engineer", "Co-founder"],
     painPoint:
       "Founders practice pitches without real-time, role-specific feedback.",
     description:
@@ -111,12 +111,12 @@ export const projects = [
     id: "linaria",
     name: "Linaria",
     icon: "brain",
-    role: ["Solo Developer", "Full-Stack", "AI Agent Architecture"],
+    role: ["Full-Stack Developer", "AI Agent Architecture"],
     painPoint:
       "Small dev teams waste time on manual standups and don't catch blockers until it's too late.",
     description:
-      "An AI executive memory agent for development teams. Connects to your team's GitHub repo, analyzes commits, PRs, and recent activity, then automatically generates daily standups, detects blockers, alerts on risks, generates changelogs, and displays team velocity in a visual dashboard. Built with a self-improvement loop where the agent evaluates its own summary quality using Arize Phoenix for observability.",
-    status: { label: "🏆 Presented at Google Cloud Rapid Agent Hackathon 2026", variant: "hackathon" as const },
+      "An AI executive memory agent for development teams. Connects to your team's GitHub repo, analyzes commits, PRs, and recent activity, then automatically generates daily standups, detects blockers, alerts on risks, generates changelogs, and displays team velocity in a visual dashboard. Features a self-improvement loop where the agent evaluates its own summary quality using Arize Phoenix for observability.",
+    status: { label: "Live · Production", variant: "live" as const },
     technical: [
       "Python + Google ADK with Gemini 2.5 Flash as core LLM",
       "FastAPI backend deployed on Google Cloud Run",
@@ -133,10 +133,11 @@ export const projects = [
       "Self-improving agent that gets better with each interaction",
     ],
     proof:
-      "I can architect and ship a complete AI agent system — from LLM orchestration and observability to production deployment on Google Cloud — solo and under hackathon pressure.",
-    github: "https://github.com/Donatohernandez/Linaria",
-    live: "https://github.com/Donatohernandez/Linaria",
-    liveLabel: "View on GitHub",
+      "I can architect and ship a complete AI agent system, from LLM orchestration and observability to production deployment on Google Cloud.",
+    github: "#",
+    live: "#",
+    liveLabel: "Landing Page Coming Soon",
+    comingSoon: true,
   },
 ];
 
@@ -179,6 +180,7 @@ export const skills = {
       title: "Backend & Data",
       items: [
         "Node.js · TypeScript",
+        "Python · FastAPI",
         "PostgreSQL · Supabase",
         "Edge Functions (Deno)",
         "REST APIs",
@@ -199,6 +201,7 @@ export const skills = {
       items: [
         "OpenAI API (GPT-4.1-mini)",
         "Google Gemini Live API",
+        "Google ADK (Agent Development Kit)",
         "Prompt engineering",
         "AI workflow integration",
         "LLM API integration",
@@ -213,6 +216,7 @@ export const skills = {
     "Vercel",
     "Google Cloud",
     "RevenueCat",
+    "Arize Phoenix",
     "Figma",
     "Claude",
     "Windsurf",
