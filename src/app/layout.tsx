@@ -1,6 +1,43 @@
 import type { Metadata } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteMetadata } from "@/data/content";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Donato Hernández",
+  url: siteMetadata.url,
+  jobTitle: "AI Automation & Backend Developer",
+  sameAs: [
+    "https://github.com/Donatohernandez",
+    "https://www.linkedin.com/in/manuel-donato-hernandez/",
+  ],
+  knowsAbout: [
+    "AI automation",
+    "Backend development",
+    "Workflow automation",
+    "Systems integration",
+    "Node.js",
+    "TypeScript",
+    "n8n",
+    "Supabase",
+    "OpenAI",
+    "Google Gemini",
+  ],
+};
 
 export const metadata: Metadata = {
   title: siteMetadata.title,
@@ -40,8 +77,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html
+      lang="en"
+      className={`${inter.variable} ${jetBrainsMono.variable} scroll-smooth`}
+    >
       <body className="bg-background text-text-primary antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         {children}
       </body>
     </html>

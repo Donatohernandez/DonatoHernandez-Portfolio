@@ -20,3 +20,6 @@ Thumbs.db
 # Misc
 *.pem
 npm-debug.log*
+
+# Private project context
+contexto_proyectos/

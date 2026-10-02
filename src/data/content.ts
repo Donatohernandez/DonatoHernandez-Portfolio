@@ -1,9 +1,9 @@
 export const siteMetadata = {
-  title: "Donato Hernández | Full-Stack Developer",
+  title: "Donato Hernández | AI Automation & Backend Developer",
   description:
-    "Mexico-based full-stack developer building production-ready apps with React Native, Node.js, and AI. Developer behind Zaaby App and PitchPilot AI.",
+    "AI automation and backend developer building workflow automations, system integrations, and AI-powered products with n8n, Node.js, Supabase, OpenAI, and Gemini.",
   url: "https://donatohernandez.dev",
-  ogImage: "/og-image.png",
+  ogImage: "/opengraph-image",
 };
 
 export const nav = {
@@ -19,64 +19,65 @@ export const nav = {
 
 export const hero = {
   name: "Donato Hernández",
-  title: "Full-Stack Developer · AI Integration · Backend Systems",
-  tagline: "I build full-stack products that ship.",
+  title: "AI Automation · Backend Systems · Systems Integration",
+  tagline: "I turn manual workflows into reliable, AI-powered systems.",
   subtext:
-    "Full-stack & backend developer behind Zaaby App and PitchPilot AI. Specialized in React Native, backend systems, and AI integration. Focused on shipping production-ready applications.",
+    "I design backend services, workflow automations, and real-time AI experiences using Node.js, TypeScript, Python, n8n, Supabase, OpenAI, Gemini, and Google Cloud.",
   cta: {
     primary: { label: "View Projects", href: "#work" },
     secondary: { label: "Let's Connect", href: "#contact" },
   },
   social: [
-    { label: "GitHub", icon: "github", href: "https://github.com/Donatohernandez" },
-    { label: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/in/manuel-donato-hernandez/" },
+    { label: "GitHub", icon: "github", href: "https://github.com/Donatohernandez", download: false },
+    { label: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/in/manuel-donato-hernandez/", download: false },
+    { label: "Download CV", icon: "cv", href: "/Manuel-Donato-Hernandez-CV.pdf", download: true },
   ],
 };
 
 export const about = {
   narrative:
-    "I started in logistics and systems administration, environments where downtime costs money and bad tooling costs more. That pushed me into building the tools myself: from a full-stack AI-powered iOS app shipped to the App Store, to real-time voice AI with sub-second latency running on Google Cloud. I care about owning the architecture end-to-end, writing code that's maintainable, and delivering products that solve real problems.",
+    "I build systems that replace repetitive, error-prone work with reliable workflows. My experience ranges from automating accounts receivable for a real business with n8n, Supabase, and Telegram, to developing real-time voice AI with Gemini Live and an AI-powered iOS product deployed to TestFlight. I care about understanding the process first, designing the data and rules behind it, and shipping a solution people can actually use.",
   capabilities: [
+    { label: "AI Automation", icon: "bot" },
+    { label: "Workflow Architecture", icon: "workflow" },
+    { label: "Systems Integration", icon: "integration" },
     { label: "Backend Engineering", icon: "server" },
-    { label: "AI Integration", icon: "brain" },
-    { label: "Production Delivery", icon: "rocket" },
     { label: "Data Architecture", icon: "database" },
-    { label: "Mobile Development", icon: "smartphone" },
-    { label: "Workflow Automation", icon: "workflow" },
+    { label: "Cloud Deployment", icon: "cloud" },
   ],
   quote:
-    "What would this look like if it was simple, scalable, and actually shipped?",
+    "Understand the process. Design the system. Automate what matters.",
 };
 
 export const projects = [
   {
-    id: "zaaby",
-    name: "Zaaby App",
-    icon: "sparkles",
-    role: ["Full-Stack Developer", "Backend Architect", "Co-founder"],
+    id: "materiales-san-rafael",
+    name: "Materiales San Rafael",
+    icon: "truck",
+    role: ["AI Automation Developer", "Backend & Data", "Systems Integration"],
     painPoint:
-      "People save great content from social media and never act on it.",
+      "Customer credit and accounts receivable were tracked through handwritten notes, making balances difficult to update, verify, and audit.",
     description:
-      "AI-powered iOS productivity app that transforms saved links into clean summaries, action items, and structured takeaways. Built for people who save content but want to actually do something with it.",
-    status: { label: "MVP Ready · TestFlight · Launching on App Store", variant: "live" as const },
+      "A mobile-first workflow automation system for a family-owned building materials business. It digitizes customer credit, payments, balances, and account history while keeping the financial logic centralized and auditable.",
+    status: { label: "Active · Client Project", variant: "live" as const },
     technical: [
-      "Full stack: React Native + Expo SDK 54, Supabase (PostgreSQL + Edge Functions in Deno), OpenAI GPT-4.1-mini, RevenueCat (3 subscription tiers)",
-      "Designed AI link processing engine: metadata extraction → state transition logic → structured output",
-      "Built onboarding flows with AI-driven personalization",
-      "Managed full build pipeline: EAS Build → TestFlight → App Store",
-      "Implemented RLS policies, GDPR/CCPA compliance, legal infrastructure",
+      "Supabase and PostgreSQL as the financial source of truth",
+      "Self-hosted n8n workflows for business logic, validation, and integrations",
+      "Telegram Bot API as a mobile operational interface for the team",
+      "Relational data model for customers, credit transactions, payments, balances, and account history",
+      "Integrity and audit rules for modifications, cancellations, and financial traceability",
     ],
     impact: [
-      "Production-ready iOS app built from zero to TestFlight",
-      "AI processing pipeline handling multiple content types (articles, videos, TikToks via oEmbed)",
-      "Subscription system with 7-day free trial and 3 tiers",
-      "Security audit completed, zero critical vulnerabilities",
+      "Automated 4 core accounts-receivable processes: customer registration, credit entries, payments, and balance inquiries",
+      "Replaced manual balance calculations with consistent database-driven updates",
+      "Validated financial logic through 5 charge, payment, and cancellation scenarios",
+      "Preserved a traceable history for every account movement",
     ],
     proof:
-      "I can architect and ship a complete AI-powered mobile product: backend, data, payments, compliance, and deployment. Solo.",
-    github: "#",
-    live: "https://zaaby.app/",
-    liveLabel: "Visit Landing Page",
+      "I can map a real business process, design its data and rules, and turn it into a practical automation used from mobile devices.",
+    live: "#",
+    liveLabel: "Case Study Coming Soon",
+    comingSoon: true,
   },
   {
     id: "pitchpilot",
@@ -87,7 +88,7 @@ export const projects = [
       "Founders practice pitches without real-time, role-specific feedback.",
     description:
       "Real-time AI pitch practice platform that simulates specific audiences (investors, teachers, clients) via bidirectional voice conversation powered by Google Gemini Live API.",
-    status: { label: "Shipped · March 2026", variant: "shipped" as const },
+    status: { label: "Project Complete", variant: "shipped" as const },
     technical: [
       "Backend: Node.js + TypeScript, WebSockets as audio proxy between browser and Gemini Live API",
       "Deployed on Google Cloud Run, frontend on Vercel",
@@ -95,146 +96,160 @@ export const projects = [
       "Transformed audio sessions into detailed written reports with performance metrics",
     ],
     impact: [
-      "Real-time bidirectional voice AI with sub-second latency",
-      "Intelligent phase detection reducing failure rate significantly",
+      "Reduced perceived latency between turns by approximately 35% by optimizing voice activity detection and audio streaming",
+      "Reduced session interruptions from 4 to 0 during a two-day test period with 60 users",
       "Post-session reports with business advice and action plans",
       "Successfully migrated infrastructure from shared to personal GCP account",
     ],
     proof:
-      "I can build real-time, production-grade AI systems with complex infrastructure. Not just CRUD apps.",
+      "I can build and deploy real-time AI systems with voice streaming, session orchestration, and cloud infrastructure.",
     github: "#",
     live: "#",
     liveLabel: "Try PitchPilot",
     comingSoon: true,
   },
   {
-    id: "linaria",
-    name: "Linaria",
-    icon: "brain",
-    role: ["Full-Stack Developer", "AI Agent Architecture"],
+    id: "zaaby",
+    name: "Zaaby App",
+    icon: "sparkles",
+    role: ["Full-Stack Developer", "Backend Architect", "Co-founder"],
     painPoint:
-      "Small dev teams waste time on manual standups and don't catch blockers until it's too late.",
+      "People save valuable content from social media but rarely turn it into action.",
     description:
-      "An AI executive memory agent for development teams. Connects to your team's GitHub repo, analyzes commits, PRs, and recent activity, then automatically generates daily standups, detects blockers, alerts on risks, generates changelogs, and displays team velocity in a visual dashboard. Features a self-improvement loop where the agent evaluates its own summary quality using Arize Phoenix for observability.",
-    status: { label: "Live · Production", variant: "live" as const },
+      "An AI-powered iOS productivity app that transforms saved links and personal ideas into summaries, structured takeaways, and actionable next steps.",
+    status: { label: "Advanced MVP · TestFlight", variant: "live" as const },
     technical: [
-      "Python + Google ADK with Gemini 2.5 Flash as core LLM",
-      "FastAPI backend deployed on Google Cloud Run",
-      "React + TypeScript + Tailwind frontend on Vercel",
-      "Arize Phoenix MCP integration for tracing and observability",
-      "Self-improvement loop: agent evaluates and scores its own outputs",
-      "Multi-step planning engine for complex queries",
-      "PyGithub for real-time repo analysis (commits, PRs, issues)",
+      "React Native, Expo, and TypeScript for the iOS application",
+      "Supabase with PostgreSQL, Row Level Security, Auth, Storage, and Edge Functions",
+      "OpenAI GPT-4.1-mini pipeline for summaries, tags, and action items",
+      "OAuth 2.0 and JWT-based authentication with Apple and Google flows",
+      "RevenueCat subscriptions and EAS Build deployment to TestFlight",
     ],
     impact: [
-      "10 production features: auto standup, blocker detection, changelog generation, PR review queue, team velocity chart, risk alerts, repo selector, multi-step planning, self-evaluation, Phoenix observability",
-      "Automated daily standups replacing manual team updates",
-      "Real-time blocker detection across PRs and issues",
-      "Self-improving agent that gets better with each interaction",
+      "Built approximately 80% of the product from architecture through beta deployment",
+      "Turned unstructured content into consistent, actionable AI output",
+      "Coordinated TestFlight beta testing with 10 users",
+      "Integrated frontend, backend, data, authentication, AI, and subscription services",
     ],
     proof:
-      "I can architect and ship a complete AI agent system, from LLM orchestration and observability to production deployment on Google Cloud.",
-    github: "#",
-    live: "#",
-    liveLabel: "Landing Page Coming Soon",
-    comingSoon: true,
+      "I can architect and deliver an AI-powered mobile product across frontend, backend, data, authentication, subscriptions, and deployment.",
+    live: "https://zaaby.app/",
+    liveLabel: "Visit Landing Page",
   },
 ];
 
 export const values = [
   {
-    icon: "rocket",
-    title: "Ship over perfect",
-    body: "Working software beats perfect plans every time.",
+    icon: "search",
+    title: "Understand before automating",
+    body: "I map the process, data, rules, and potential failure points before choosing the tools.",
   },
   {
     icon: "layers",
     title: "Systems over patches",
-    body: "If a problem repeats, I build something to stop it.",
+    body: "If a problem repeats, I build a reliable system to prevent it from happening again.",
   },
   {
     icon: "bot",
-    title: "AI as a tool, not a crutch",
-    body: "I use AI to go faster, not to skip understanding.",
+    title: "AI where it adds value",
+    body: "Not every process needs AI. I use it when it improves decisions, speed, or the user experience.",
   },
   {
-    icon: "code2",
-    title: "Clarity in code",
-    body: "Readable, maintainable code is a form of respect for your team.",
+    icon: "shield",
+    title: "Reliable by design",
+    body: "Validation, traceability, security, and error handling are part of the architecture from the start.",
   },
   {
-    icon: "wifi",
-    title: "Remote-first mindset",
-    body: "Async communication, documentation, ownership.",
+    icon: "trending",
+    title: "Build, measure, improve",
+    body: "I deliver working solutions, observe how they are used, and improve them with real-world results.",
   },
   {
-    icon: "users",
-    title: "Talent over location",
-    body: "The best work happens when you hire for skill, not timezone.",
+    icon: "route",
+    title: "End-to-end ownership",
+    body: "I take projects from process analysis and architecture through integration, deployment, and continuous improvement.",
   },
 ];
 
 export const skills = {
   columns: [
     {
-      title: "Backend & Data",
+      title: "AI & Automation",
+      items: [
+        "n8n · Workflow Automation",
+        "OpenAI API · GPT-4.1-mini",
+        "Google Gemini Live API",
+        "Telegram Bot API",
+        "Prompt & Output Design",
+        "AI Systems Integration",
+      ],
+    },
+    {
+      title: "Backend & Integration",
       items: [
         "Node.js · TypeScript",
-        "Python · FastAPI",
+        "Python",
+        "REST APIs · WebSockets",
+        "OAuth 2.0 · JWT",
+        "OpenAPI",
+        "Systems Integration",
+      ],
+    },
+    {
+      title: "Data & Cloud",
+      items: [
         "PostgreSQL · Supabase",
-        "Edge Functions (Deno)",
-        "REST APIs",
-        "Data modeling & RLS",
+        "Data Modeling · RLS",
+        "Edge Functions · Deno",
+        "Google Cloud Run",
+        "Docker · Containers",
+        "CI/CD · Vercel",
       ],
     },
     {
       title: "Frontend & Mobile",
       items: [
+        "React · Next.js",
         "React Native · Expo",
-        "Next.js · React",
         "JavaScript · TypeScript",
         "EAS Build · TestFlight",
       ],
     },
-    {
-      title: "AI & Automation",
-      items: [
-        "OpenAI API (GPT-4.1-mini)",
-        "Google Gemini Live API",
-        "Google ADK (Agent Development Kit)",
-        "Prompt engineering",
-        "AI workflow integration",
-        "LLM API integration",
-      ],
-    },
   ],
   tools: [
-    "Git",
-    "GitHub",
-    "Jira",
+    "n8n",
+    "Node.js",
+    "TypeScript",
+    "Python",
     "Supabase",
-    "Vercel",
+    "PostgreSQL",
+    "OpenAI",
+    "Gemini",
     "Google Cloud",
+    "Docker",
+    "React Native",
+    "Expo",
+    "GitHub",
+    "Vercel",
     "RevenueCat",
-    "Arize Phoenix",
-    "Figma",
-    "Claude",
-    "Windsurf",
   ],
   philosophy:
     "AI should accelerate understanding, not replace it. I use it to build faster, but I know why every line works.",
 };
 
 export const contact = {
-  headline: "Let's Work Together",
+  headline: "Let's automate what slows your team down.",
   subtext:
-    "If your team needs a developer who ships full-stack products, integrates AI thoughtfully, and works well async, let's talk.",
-  hint: "I'm open to remote full-stack roles, especially teams building with AI.",
+    "I help teams replace repetitive workflows with reliable automation, connected systems, and AI-powered backend solutions.",
+  hint: "Available for remote AI automation and backend opportunities.",
   email: "manueldonato9921@gmail.com",
   linkedin: "https://www.linkedin.com/in/manuel-donato-hernandez/",
   whatsapp: "https://wa.me/526471229788",
-  whatsappNumber: "+52 647 122 9788",
-  emailLabel: "Email Me",
+  cv: "/Manuel-Donato-Hernandez-CV.pdf",
+  emailLabel: "Start a Conversation",
+  cvLabel: "Download CV",
   linkedinLabel: "LinkedIn",
   whatsappLabel: "WhatsApp",
+  footer:
+    "Building reliable systems and automations that solve real problems.",
 };

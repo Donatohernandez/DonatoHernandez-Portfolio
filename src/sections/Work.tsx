@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles, Mic, Brain, ExternalLink } from "lucide-react";
+import { Sparkles, Mic, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { projects } from "@/data/content";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -9,7 +9,22 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 const iconMap: Record<string, React.ReactNode> = {
   sparkles: <Sparkles size={20} />,
   mic: <Mic size={20} />,
-  brain: <Brain size={20} />,
+  truck: (
+    <span
+      aria-hidden
+      className="block w-9 h-6 bg-current shrink-0"
+      style={{
+        WebkitMaskImage: "url('/materiales-san-rafael-truck.png')",
+        maskImage: "url('/materiales-san-rafael-truck.png')",
+        WebkitMaskRepeat: "no-repeat",
+        maskRepeat: "no-repeat",
+        WebkitMaskPosition: "center",
+        maskPosition: "center",
+        WebkitMaskSize: "contain",
+        maskSize: "contain",
+      }}
+    />
+  ),
 };
 
 const statusStyles: Record<string, string> = {
@@ -26,7 +41,7 @@ export function Work() {
           <div className="mb-14">
             <SectionLabel>02 · Featured Work</SectionLabel>
             <h2 className="text-3xl sm:text-4xl font-semibold text-text-primary mt-3">
-              Things I&apos;ve shipped
+              Selected Projects
             </h2>
           </div>
         </FadeIn>
@@ -91,7 +106,7 @@ export function Work() {
                       Technical Build
                     </h4>
                     <ul className="space-y-3">
-                      {project.technical.map((t, i) => (
+                      {project.technical.slice(0, 3).map((t, i) => (
                         <li key={i} className="flex gap-3 text-sm text-text-secondary leading-relaxed">
                           <span className="text-accent mt-1 shrink-0">▸</span>
                           {t}
@@ -104,7 +119,7 @@ export function Work() {
                       Impact &amp; Results
                     </h4>
                     <ul className="space-y-3">
-                      {project.impact.map((imp, i) => (
+                      {project.impact.slice(0, 3).map((imp, i) => (
                         <li key={i} className="flex gap-3 text-sm text-text-secondary leading-relaxed">
                           <span className="text-emerald-400 mt-1 shrink-0">✓</span>
                           {imp}

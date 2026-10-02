@@ -3,10 +3,10 @@
 import Image from "next/image";
 import {
   Server,
-  Brain,
-  Rocket,
+  Bot,
+  Cable,
+  Cloud,
   Database,
-  Smartphone,
   Workflow,
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -16,10 +16,10 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const iconMap: Record<string, React.ReactNode> = {
   server: <Server size={18} />,
-  brain: <Brain size={18} />,
-  rocket: <Rocket size={18} />,
+  bot: <Bot size={18} />,
+  integration: <Cable size={18} />,
+  cloud: <Cloud size={18} />,
   database: <Database size={18} />,
-  smartphone: <Smartphone size={18} />,
   workflow: <Workflow size={18} />,
 };
 
@@ -48,7 +48,7 @@ export function About() {
               <div className="relative w-44 h-44 rounded-full overflow-hidden border-2 border-border-2 ring-4 ring-accent/10">
                 <Image
                   src="/donato.jpg"
-                  alt="Donato Hernández, Full-Stack Developer"
+                  alt="Donato Hernández, AI Automation and Backend Developer"
                   fill
                   sizes="176px"
                   className="object-cover object-top"

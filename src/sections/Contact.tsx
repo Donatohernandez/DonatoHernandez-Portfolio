@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Linkedin, MessageCircle } from "lucide-react";
+import { ArrowUpRight, FileDown, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { contact } from "@/data/content";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -15,67 +15,94 @@ export function Contact() {
         </FadeIn>
 
         <FadeIn delay={0.06}>
-          <div className="mt-12 rounded-2xl border border-border-2 bg-surface overflow-hidden">
+          <div className="mt-12 rounded-2xl border border-border-2 bg-surface overflow-hidden relative">
             {/* Accent top strip */}
             <div className="h-[3px] w-full bg-gradient-to-r from-accent/0 via-accent to-accent/0" />
 
-            <div className="p-10 sm:p-14">
-              <h2 className="text-3xl sm:text-4xl font-semibold text-text-primary mb-4">
-                {contact.headline}
-              </h2>
-              <p className="text-text-secondary text-lg leading-relaxed max-w-xl mb-6">
-                {contact.subtext}
-              </p>
+            <div
+              aria-hidden
+              className="absolute -top-32 -right-24 w-80 h-80 rounded-full pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(56,189,248,0.08) 0%, transparent 70%)",
+              }}
+            />
 
-              {/* Hint box */}
-              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-accent-dim border border-accent/15 mb-10">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                <p className="text-sm text-text-secondary">
-                  {contact.hint}
+            <div className="relative p-8 sm:p-12 lg:p-14 grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center">
+              <div>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-text-primary leading-tight mb-5 max-w-2xl">
+                  {contact.headline}
+                </h2>
+                <p className="text-text-secondary text-lg leading-relaxed max-w-xl mb-7">
+                  {contact.subtext}
                 </p>
+
+                {/* Availability */}
+                <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-accent-dim border border-accent/15 mb-9">
+                  <span className="relative flex w-2 h-2">
+                    <span className="absolute inline-flex w-full h-full rounded-full bg-emerald-400 opacity-60 animate-ping" />
+                    <span className="relative inline-flex w-2 h-2 rounded-full bg-emerald-400" />
+                  </span>
+                  <p className="text-sm text-text-secondary">{contact.hint}</p>
+                </div>
+
+                {/* Primary actions */}
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                  <motion.a
+                    href={`mailto:${contact.email}`}
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.15 }}
+                    className="inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-md bg-accent text-background font-semibold text-sm cursor-pointer hover:bg-accent-hover transition-colors duration-200"
+                  >
+                    <Mail size={16} />
+                    {contact.emailLabel}
+                  </motion.a>
+                  <motion.a
+                    href={contact.cv}
+                    download="Manuel-Donato-Hernandez-CV.pdf"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.15 }}
+                    className="inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-md border border-border-2 text-text-primary font-semibold text-sm cursor-pointer hover:border-accent/40 hover:text-accent transition-colors duration-200"
+                  >
+                    <FileDown size={16} />
+                    {contact.cvLabel}
+                  </motion.a>
+                </div>
               </div>
 
-              {/* CTA */}
-              <div className="mb-12">
-                <motion.a
-                  href={`mailto:${contact.email}`}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.15 }}
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-md bg-accent text-background font-semibold text-sm cursor-pointer hover:bg-accent-hover transition-colors duration-200"
-                >
-                  <Mail size={16} />
-                  {contact.emailLabel}
-                </motion.a>
-              </div>
-
-              {/* Contact cards */}
-              <div className="grid sm:grid-cols-3 gap-4">
+              {/* Contact channels */}
+              <div>
+                <p className="font-mono text-[11px] text-text-muted uppercase tracking-widest mb-4">
+                  Prefer another channel?
+                </p>
+                <div className="space-y-3">
                 <a
                   href={`mailto:${contact.email}`}
-                  className="flex items-center gap-4 p-4 rounded-lg border border-border bg-surface-2 group hover:border-border-2 transition-colors duration-200 cursor-pointer"
+                  className="flex items-center gap-4 p-4 rounded-lg border border-border bg-surface-2 group hover:border-accent/30 transition-colors duration-200 cursor-pointer"
                 >
                   <div className="p-2.5 rounded-md bg-accent-dim">
                     <Mail size={16} className="text-accent" />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <p className="font-mono text-[11px] text-text-muted uppercase tracking-widest mb-0.5">
                       Email
                     </p>
                     <p className="text-sm text-text-secondary group-hover:text-text-primary transition-colors duration-200">
-                      {contact.email}
+                      Usually replies within 24 hours
                     </p>
                   </div>
+                  <ArrowUpRight size={15} className="text-text-muted group-hover:text-accent transition-colors" />
                 </a>
                 <a
                   href={contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-lg border border-border bg-surface-2 group hover:border-border-2 transition-colors duration-200 cursor-pointer"
+                  className="flex items-center gap-4 p-4 rounded-lg border border-border bg-surface-2 group hover:border-accent/30 transition-colors duration-200 cursor-pointer"
                 >
                   <div className="p-2.5 rounded-md bg-accent-dim">
                     <Linkedin size={16} className="text-accent" />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <p className="font-mono text-[11px] text-text-muted uppercase tracking-widest mb-0.5">
                       LinkedIn
                     </p>
@@ -83,25 +110,28 @@ export function Contact() {
                       Connect with me
                     </p>
                   </div>
+                  <ArrowUpRight size={15} className="text-text-muted group-hover:text-accent transition-colors" />
                 </a>
                 <a
                   href={contact.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-lg border border-border bg-surface-2 group hover:border-border-2 transition-colors duration-200 cursor-pointer"
+                  className="flex items-center gap-4 p-4 rounded-lg border border-border bg-surface-2 group hover:border-accent/30 transition-colors duration-200 cursor-pointer"
                 >
                   <div className="p-2.5 rounded-md bg-accent-dim">
                     <MessageCircle size={16} className="text-accent" />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <p className="font-mono text-[11px] text-text-muted uppercase tracking-widest mb-0.5">
-                      SMS / WhatsApp
+                      WhatsApp
                     </p>
                     <p className="text-sm text-text-secondary group-hover:text-text-primary transition-colors duration-200">
-                      {contact.whatsappNumber}
+                      Send me a message
                     </p>
                   </div>
+                  <ArrowUpRight size={15} className="text-text-muted group-hover:text-accent transition-colors" />
                 </a>
+                </div>
               </div>
             </div>
           </div>
@@ -114,7 +144,7 @@ export function Contact() {
               <span className="text-accent">Donato</span>{" "}
               <span className="text-text-primary">Hernández</span>
             </span>
-            <span>© 2026 Donato Hernández. Built with intention, strong coffee, and a passion for shipping things that matter.</span>
+            <span>© 2026 Donato Hernández. {contact.footer}</span>
           </div>
         </FadeIn>
       </div>

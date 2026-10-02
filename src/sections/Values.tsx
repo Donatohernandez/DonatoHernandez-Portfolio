@@ -1,18 +1,18 @@
 "use client";
 
-import { Rocket, Layers, Bot, Code2, Wifi, Users } from "lucide-react";
+import { Search, Layers, Bot, ShieldCheck, TrendingUp, Route } from "lucide-react";
 import { motion } from "framer-motion";
 import { values } from "@/data/content";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const iconMap: Record<string, React.ReactNode> = {
-  rocket: <Rocket size={18} />,
+  search: <Search size={18} />,
   layers: <Layers size={18} />,
   bot: <Bot size={18} />,
-  code2: <Code2 size={18} />,
-  wifi: <Wifi size={18} />,
-  users: <Users size={18} />,
+  shield: <ShieldCheck size={18} />,
+  trending: <TrendingUp size={18} />,
+  route: <Route size={18} />,
 };
 
 export function Values() {
@@ -23,7 +23,7 @@ export function Values() {
           <div className="mb-14">
             <SectionLabel>03 · Values</SectionLabel>
             <h2 className="text-3xl sm:text-4xl font-semibold text-text-primary mt-3">
-              What I believe in
+              How I build
             </h2>
           </div>
         </FadeIn>

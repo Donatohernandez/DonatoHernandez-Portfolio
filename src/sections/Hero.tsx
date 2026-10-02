@@ -1,13 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, ArrowDown } from "lucide-react";
+import { Github, Linkedin, ArrowDown, FileDown } from "lucide-react";
 import { hero } from "@/data/content";
 import { SpecialText } from "@/components/ui/special-text";
 
 const iconMap: Record<string, React.ReactNode> = {
   github: <Github size={18} />,
   linkedin: <Linkedin size={18} />,
+  cv: <FileDown size={18} />,
 };
 
 const container = {
@@ -62,7 +63,7 @@ export function Hero() {
           variants={item}
           className="font-mono text-xs text-accent tracking-widest uppercase mb-6"
         >
-          Full-Stack Developer
+          AI Automation &amp; Backend Developer
         </motion.p>
 
         {/* Name */}
@@ -128,12 +129,18 @@ export function Hero() {
             <a
               key={s.label}
               href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={s.download ? undefined : "_blank"}
+              rel={s.download ? undefined : "noopener noreferrer"}
+              download={s.download ? "Manuel-Donato-Hernandez-CV.pdf" : undefined}
               aria-label={s.label}
-              className="flex items-center justify-center w-10 h-10 rounded-md border border-border text-text-muted hover:border-accent/40 hover:text-accent transition-all duration-200"
+              className={`flex items-center justify-center h-10 rounded-md border border-border text-text-muted hover:border-accent/40 hover:text-accent transition-all duration-200 ${
+                s.download ? "gap-2 px-3" : "w-10"
+              }`}
             >
               {iconMap[s.icon]}
+              {s.download && (
+                <span className="font-mono text-xs font-semibold tracking-wide">CV</span>
+              )}
             </a>
           ))}
         </motion.div>

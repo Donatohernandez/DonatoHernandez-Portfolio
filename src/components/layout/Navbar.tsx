@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { nav } from "@/data/content";
@@ -9,6 +9,8 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,6 +45,40 @@ export function Navbar() {
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  // Keep keyboard focus inside the mobile navigation and support Escape.
+  useEffect(() => {
+    if (!menuOpen || !drawerRef.current) return;
+
+    const drawer = drawerRef.current;
+    const focusable = Array.from(
+      drawer.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')
+    );
+    focusable[0]?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        menuButtonRef.current?.focus();
+        return;
+      }
+
+      if (event.key !== "Tab" || focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [menuOpen]);
 
   return (
@@ -87,9 +123,12 @@ export function Navbar() {
 
           {/* Mobile hamburger */}
           <button
+            ref={menuButtonRef}
             onClick={() => setMenuOpen((v) => !v)}
             className="sm:hidden flex items-center justify-center w-9 h-9 rounded-md text-text-secondary hover:text-text-primary transition-colors duration-200"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -102,6 +141,11 @@ export function Navbar() {
           <>
             {/* Backdrop */}
             <motion.div
+              ref={drawerRef}
+              id="mobile-navigation"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Mobile navigation"
               key="backdrop"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
