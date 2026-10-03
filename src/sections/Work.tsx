@@ -133,7 +133,9 @@ export function Work() {
                       Product in action
                     </p>
                     <h4 className="mb-5 mt-2 text-xl font-semibold text-text-primary">
-                      Real-time practice and actionable feedback
+                      {project.id === "pitchpilot"
+                        ? "Real-time practice and actionable feedback"
+                        : "From saved content to concrete action"}
                     </h4>
                     <div className="flex flex-wrap items-start justify-center gap-5">
                       {project.media.map((media) => (

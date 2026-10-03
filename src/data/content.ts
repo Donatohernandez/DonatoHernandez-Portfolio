@@ -159,7 +159,29 @@ export const projects = [
       "I can architect and deliver an AI-powered mobile product across frontend, backend, data, authentication, subscriptions, and deployment.",
     live: "https://zaaby.app/",
     liveLabel: "Visit Landing Page",
-    media: [] as { src: string; alt: string; caption: string; width: number; height: number }[],
+    media: [
+      {
+        src: "/projects/zaaby/biblioteca.webp",
+        alt: "Zaaby saved-content library with filters, statuses, and suggested actions",
+        caption: "An organized library with filters, progress states, and direct access to suggested actions.",
+        width: 1290,
+        height: 2796,
+      },
+      {
+        src: "/projects/zaaby/detalle-acciones.webp",
+        alt: "Zaaby content detail with an AI summary, tags, and action items",
+        caption: "AI-generated summaries, tags, and next steps turn saved content into something actionable.",
+        width: 1290,
+        height: 2796,
+      },
+      {
+        src: "/projects/zaaby/metricas.webp",
+        alt: "Zaaby insights dashboard with progress, completed actions, and categories",
+        caption: "A progress dashboard tracks useful content, completed actions, and performance by category.",
+        width: 1290,
+        height: 2796,
+      },
+    ],
   },
 ];
 
