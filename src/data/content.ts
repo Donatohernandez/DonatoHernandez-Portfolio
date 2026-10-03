@@ -78,6 +78,7 @@ export const projects = [
     live: "#",
     liveLabel: "Case Study Coming Soon",
     comingSoon: true,
+    media: [] as { src: string; alt: string; caption: string; width: number; height: number }[],
   },
   {
     id: "pitchpilot",
@@ -107,6 +108,29 @@ export const projects = [
     live: "#",
     liveLabel: "Try PitchPilot",
     comingSoon: true,
+    media: [
+      {
+        src: "/projects/pitchpilot/simulacion-enfocado.webp",
+        alt: "PitchPilot practice session with eye contact detected",
+        caption: "The session evaluates the pitch in real time while the user maintains eye contact.",
+        width: 1600,
+        height: 841,
+      },
+      {
+        src: "/projects/pitchpilot/simulacion-distraccion.webp",
+        alt: "PitchPilot detecting a distraction during a live simulation",
+        caption: "The system detects distractions during practice and includes them in the final feedback.",
+        width: 1600,
+        height: 841,
+      },
+      {
+        src: "/projects/pitchpilot/reporte-completo.webp",
+        alt: "Performance report generated after a PitchPilot session",
+        caption: "Each session ends with metrics, findings, and concrete actions for the next pitch.",
+        width: 973,
+        height: 1600,
+      },
+    ],
   },
   {
     id: "zaaby",
@@ -135,6 +159,7 @@ export const projects = [
       "I can architect and deliver an AI-powered mobile product across frontend, backend, data, authentication, subscriptions, and deployment.",
     live: "https://zaaby.app/",
     liveLabel: "Visit Landing Page",
+    media: [] as { src: string; alt: string; caption: string; width: number; height: number }[],
   },
 ];
 

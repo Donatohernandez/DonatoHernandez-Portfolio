@@ -1,7 +1,9 @@
 "use client";
 
-import { Sparkles, Mic, ExternalLink } from "lucide-react";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { Sparkles, Mic, ExternalLink, X } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { projects } from "@/data/content";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -34,7 +36,33 @@ const statusStyles: Record<string, string> = {
 };
 
 export function Work() {
+  const [selectedMedia, setSelectedMedia] = useState<{
+    src: string;
+    alt: string;
+    caption: string;
+    width: number;
+    height: number;
+  } | null>(null);
+
+  useEffect(() => {
+    if (!selectedMedia) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedMedia(null);
+    };
+
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [selectedMedia]);
+
   return (
+    <>
     <section id="work" className="py-28 px-6 bg-surface/30">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
@@ -98,6 +126,45 @@ export function Work() {
                     {project.description}
                   </p>
                 </div>
+
+                {project.media.length > 0 && (
+                  <section className="border-b border-border bg-background/60 p-6 sm:p-8">
+                    <p className="font-mono text-xs uppercase tracking-widest text-accent/70">
+                      Product in action
+                    </p>
+                    <h4 className="mb-5 mt-2 text-xl font-semibold text-text-primary">
+                      Real-time practice and actionable feedback
+                    </h4>
+                    <div className="flex flex-wrap items-start justify-center gap-5">
+                      {project.media.map((media) => (
+                        <figure
+                          key={media.src}
+                          className={`w-full ${media.width > media.height ? "max-w-[360px]" : "max-w-[220px]"}`}
+                        >
+                          <button
+                            type="button"
+                            onClick={() => setSelectedMedia(media)}
+                            aria-label={`Expand screenshot: ${media.alt}`}
+                            aria-haspopup="dialog"
+                            className="block w-full overflow-hidden rounded-xl border border-border transition duration-200 hover:scale-[1.02] hover:border-accent/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                          >
+                            <Image
+                              src={media.src}
+                              alt={media.alt}
+                              width={media.width}
+                              height={media.height}
+                              sizes={media.width > media.height ? "360px" : "220px"}
+                              className="h-auto w-full"
+                            />
+                          </button>
+                          <figcaption className="mt-2 text-center text-xs leading-relaxed text-text-muted">
+                            {media.caption}
+                          </figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  </section>
+                )}
 
                 {/* Technical / Impact columns */}
                 <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-border">
@@ -170,5 +237,57 @@ export function Work() {
         </div>
       </div>
     </section>
+    <AnimatePresence>
+      {selectedMedia && (
+        <motion.div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 p-6 backdrop-blur-sm"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          onClick={() => setSelectedMedia(null)}
+        >
+          <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Expanded screenshot"
+            initial={{ opacity: 0, scale: 0.88, y: 16 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 12 }}
+            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col items-center gap-3"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              autoFocus
+              onClick={() => setSelectedMedia(null)}
+              aria-label="Close expanded screenshot"
+              className="group relative overflow-hidden rounded-2xl border border-white/15 shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              <Image
+                src={selectedMedia.src}
+                alt={selectedMedia.alt}
+                width={selectedMedia.width}
+                height={selectedMedia.height}
+                sizes="90vw"
+                className="h-auto max-h-[74vh] w-auto max-w-[90vw] object-contain"
+                priority
+              />
+              <span className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-black/65 text-white transition-colors group-hover:bg-black/85">
+                <X size={18} />
+              </span>
+            </button>
+            <p className="max-w-xl text-center text-sm text-white/75">
+              {selectedMedia.caption}
+            </p>
+            <p className="font-mono text-[10px] text-white/45">
+              Click the image, background, or press Escape to close
+            </p>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   );
 }
