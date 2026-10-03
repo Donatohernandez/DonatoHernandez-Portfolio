@@ -104,7 +104,7 @@ export const projects = [
     ],
     proof:
       "I can build and deploy real-time AI systems with voice streaming, session orchestration, and cloud infrastructure.",
-    github: "#",
+    github: "https://github.com/Donatohernandez/PitchPilot-AI",
     live: "#",
     liveLabel: "Try PitchPilot",
     comingSoon: true,
@@ -157,6 +157,7 @@ export const projects = [
     ],
     proof:
       "I can architect and deliver an AI-powered mobile product across frontend, backend, data, authentication, subscriptions, and deployment.",
+    github: "https://github.com/Donatohernandez/Zaaby-app",
     live: "https://zaaby.app/",
     liveLabel: "Visit Landing Page",
     media: [
